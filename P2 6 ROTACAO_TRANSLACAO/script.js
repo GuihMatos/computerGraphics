@@ -146,11 +146,7 @@ canvas.addEventListener('mousemove', function(event) {
     x = ((x - rect.left) - canvas.width / 2) / (canvas.width / 2);
     y = (canvas.height / 2 - (y - rect.top)) / (canvas.height / 2);
 
-    // Atualiza a posição do quadrado com base no movimento do mouse
-    squarePosition.x = x;
-    squarePosition.y = y;
-
-    gl.uniform2f(uTranslation, squarePosition.x, squarePosition.y);
+    gl.uniform2f(uTranslation, x, y);
 
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
